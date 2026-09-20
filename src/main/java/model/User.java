@@ -41,6 +41,11 @@ public class User {
     }
 
     @Override
+    public String toString() {
+        return id + " | " + name + " | " + email;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (!(o instanceof User user)) return false;
         return Objects.equals(id, user.id);

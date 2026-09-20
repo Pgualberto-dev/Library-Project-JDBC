@@ -39,6 +39,11 @@ public class Book {
     }
 
     @Override
+    public String toString() {
+        return id + " | " + title + " | " + totalCopies;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (!(o instanceof Book book)) return false;
         return Objects.equals(id, book.id);

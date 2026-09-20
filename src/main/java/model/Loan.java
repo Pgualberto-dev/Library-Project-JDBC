@@ -13,7 +13,7 @@ public class Loan {
     private LocalDate dueDate;
     private LoanStatus status;
 
-    public Loan(Integer id, Integer userId, Integer bookId, LocalDate loanDate, LocalDate dueDate, LoanStatus status) {
+    public Loan(Integer id, Integer userId, Integer bookId, LocalDate loanDate, LocalDate dueDate,  LoanStatus status) {
         this.id = id;
         this.userId = userId;
         this.bookId = bookId;
@@ -22,7 +22,7 @@ public class Loan {
         this.status = status;
     }
 
-    public Loan(Integer userId, Integer bookId, LocalDate loanDate, LocalDate dueDate, LoanStatus status) {
+    public Loan(Integer userId, Integer bookId, LocalDate loanDate, LocalDate dueDate) {
         this.userId = userId;
         this.bookId = bookId;
         this.loanDate = loanDate;
