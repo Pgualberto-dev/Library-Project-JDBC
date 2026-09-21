@@ -1,5 +1,4 @@
 package repository.jdbc;
-
 import database.ConnFactory;
 import model.Book;
 import model.Loan;

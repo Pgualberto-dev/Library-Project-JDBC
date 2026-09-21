@@ -19,7 +19,7 @@ import java.util.Optional;
                 Optional<User> byId = repo.findById(saved.getId());
                 check("findById encontra", byId.isPresent() && byId.get().getEmail().equals(email));
                 Optional<User> byEmail = repo.findByEmail(email);
-                check("findByEmail encontra", byEmail.isPresent() && byEmail.get().getId() == saved.getId());
+                check("findByEmail encontra", byEmail.isPresent() && byEmail.get().getId().equals(saved.getId()));
 
                 // 3. updateUser + confirmação no banco
                 String newEmail = "novo" + email;
@@ -32,7 +32,7 @@ import java.util.Optional;
                                 && afterUpdate.get().getEmail().equals(newEmail));
 
                 // 4. findAll
-                boolean inList = repo.findAll().stream().anyMatch(u -> u.getId() == saved.getId());
+                boolean inList = repo.findAll().stream().anyMatch(u -> u.getId().equals(saved.getId()));
                 check("findAll contém o usuário", inList);
 
                 // 5. caminhos tristes

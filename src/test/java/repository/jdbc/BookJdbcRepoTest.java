@@ -35,7 +35,7 @@ public class BookJdbcRepoTest {
                             && afterUpdate.get().getTotalCopies() == 8);
 
             // 4. findAll
-            boolean inList = repo.findAll().stream().anyMatch(b -> b.getId() == saved.getId());
+            boolean inList = repo.findAll().stream().anyMatch(b -> b.getId().equals(saved.getId()));
             check("findAll contém o livro", inList);
 
             // 5. caminhos tristes
