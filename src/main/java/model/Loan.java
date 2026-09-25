@@ -76,6 +76,11 @@ public class Loan {
     }
 
     @Override
+    public String toString() {
+        return id + " | User ID: " + userId + " | Book ID: " + bookId + " | Loan Date: " + loanDate + " | Due Date: " + dueDate + " | Status: " + status;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (!(o instanceof Loan loan)) return false;
         return Objects.equals(id, loan.id);
