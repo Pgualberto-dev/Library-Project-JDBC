@@ -1,35 +1,63 @@
-# Library JDBC
+# Library Project JDBC
 
-Aplicação de terminal para gerenciar usuários, livros e empréstimos de uma biblioteca. O projeto foi criado para praticar Java, JDBC, padrão Repository/DAO e uma camada de regras de negócio antes de avançar para Spring.
+Aplicação de linha de comando para gerenciamento de biblioteca, com foco em operações de usuários, livros e empréstimos.  
+O projeto foi desenvolvido para praticar Java com JDBC, aplicação do padrão Repository/DAO e separação entre persistência e regras de negócio.
 
-## Requisitos
+## Objetivo
+
+Disponibilizar uma base simples e organizada para operações de biblioteca em ambiente local, incluindo:
+
+- cadastro e manutenção de usuários;
+- cadastro e manutenção de livros;
+- controle de empréstimos e devoluções.
+
+## Tecnologias
 
 - Java 21
+- Maven
 - MySQL 8+
-- Maven, ou IntelliJ IDEA com suporte a Maven
+- JDBC (MySQL Connector/J)
 
-## Configuração do banco
+## Pré-requisitos
 
-1. Crie um banco MySQL, por exemplo `library`.
-2. Execute `src/main/resources/schema.sql` nesse banco.
-3. Crie `src/main/resources/db.properties` com as credenciais locais:
+Antes de executar o projeto, certifique-se de ter:
+
+- JDK 21 instalado;
+- MySQL em execução;
+- Maven disponível no ambiente (ou IDE com suporte a projetos Maven).
+
+## Configuração do banco de dados
+
+1. Crie um banco no MySQL (exemplo: `library`).
+2. Execute o script `src/main/resources/schema.sql`.
+3. Crie o arquivo `src/main/resources/db.properties` com as credenciais locais:
 
 ```properties
 durl=jdbc:mysql://localhost:3306/library
 user=seu_usuario
-password=sua_senha
+******
 ```
 
-O arquivo `db.properties` é ignorado pelo Git para não publicar credenciais.
+> O arquivo `db.properties` está no `.gitignore` para evitar versionamento de credenciais.
 
-## Executando
+## Como executar
 
-Execute a classe `application.Program` pela IDE. O menu de terminal permite cadastrar, buscar, listar, atualizar e excluir usuários e livros, além de criar, devolver e consultar empréstimos.
+Você pode executar a aplicação pela classe principal:
 
-## Estrutura
+- `application.Program`
 
-- `model`: entidades do domínio.
-- `repository`: contratos e implementações JDBC (DAO).
-- `services`: validações e regras de negócio.
-- `application`: inicialização e interface de terminal.
-- `test`: testes manuais de repositórios e serviços.
+Ao iniciar, o menu de terminal permite:
+
+- cadastrar, buscar, listar, atualizar e remover usuários;
+- cadastrar, buscar, listar, atualizar e remover livros;
+- registrar empréstimos, devoluções e consultas de empréstimos.
+
+## Estrutura do projeto
+
+- `application`: ponto de entrada e interface de terminal.
+- `database`: fábrica de conexão JDBC.
+- `model`: entidades de domínio.
+- `repository`: contratos e implementações de acesso a dados (JDBC/DAO).
+- `services`: regras de negócio e validações.
+- `exception`: exceções de domínio.
+- `test`: classes de teste para repositórios e serviços.
